@@ -26,10 +26,19 @@ class App():
 				else:
 					wordCount[word] += 1
 
+		self.writeToFile(wordCount, f)
+		'''
 		for name, count in wordCount.items():
 			f.write(name + ' ' + str(index) + ' ' + str(count) + '\n')			
 			index += 1
+		'''
 		f.close()
+	
+	def writeToFile(self, wordCount, f):
+		index = 0
+		for name, count in wordCount.items():
+			f.write(name + ' ' + str(index) + ' ' + str(count) + '\n')			
+			index += 1
 
 if __name__ ==  '__main__':
 	app = App('words.txt')
