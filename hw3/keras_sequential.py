@@ -43,6 +43,8 @@ def load_data(number=10000):
 
 model = Sequential()
 
+# Dense means fully connected layer
+# units is the number of the neuron
 model.add(Dense(input_dim=28*28, units=700, activation='relu'))
 model.add(Dense(units=700, activation='relu'))
 model.add(Dense(units=10, activation='softmax'))
