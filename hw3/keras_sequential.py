@@ -56,18 +56,19 @@ metrics=['accuracy'])
 (x_train, y_train), (x_test, y_test) = load_data(5000)
 
 xto_train = x_train[0:4500]
-xto_evaluate = x_train[4500:5000]
+xto_validation = x_train[4500:5000]
 yto_train = y_train[0:4500]
-yto_evaluate = y_train[4500:5000]
+yto_validation = y_train[4500:5000]
 
-model.fit(xto_train, yto_train, batch_size=100, epochs=20)
+model.fit(xto_train, yto_train, validation_data=(xto_validation, yto_validation), batch_size=100, epochs=20)
 
-score=model.evaluate(xto_evaluate, yto_evaluate)
-print('Total loss:', score[0])
-print('Accuracy:', score[1])
+# score=model.evaluate(xto_validation, yto_validation)
+# print('Total loss:', score[0])
+# print('Accuracy:', score[1])
 
 result=model.evaluate(x_test[:500], y_test[:500])
-print(result)
+print('Total loss:', result[0])
+print('Accuracy:', result[1])
 
 classes = model.predict(x_test[:100])
 print(classes[:3])
