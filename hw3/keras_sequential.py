@@ -80,3 +80,5 @@ print(np.argmax(classes[1]))
 
 print('origin: ', y_test[97])
 print(np.argmax(classes[97]))
+
+model.save_weights('model/keras_seq.h5')
